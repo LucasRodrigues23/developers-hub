@@ -1,6 +1,6 @@
-import { createGlobalStyles } from 'styled-components'
+import { createGlobalStyle } from 'styled-components'
 
-export default createGlobalStyles`
+export default createGlobalStyle`
 * {
   box-sizing: border-box;
   margin: 0;
@@ -30,6 +30,15 @@ button {
     cursor: pointer;
 }
 
+.App {
+    background: var(--color-grey-4);
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
 
 
 `
