@@ -1,8 +1,8 @@
 import React from 'react'
 import { ButtonPrimary, ButtonGrey } from './styles'
 
-export const Button = ({children, type, style}) => {
-    if (style === 'primary') {
+export const Button = ({children, type, btstyle}) => {
+    if (btstyle === 'primary') {
          return (
     <>
     <ButtonPrimary type={type}>{children}</ButtonPrimary>

@@ -10,11 +10,11 @@ export const Input = ({label, id, type, placeholder, register}) => {
   )
 }
 
-export const Select = ({label, id, type, placeholder,  register, options}) => {
+export const Select = ({label, id, placeholder,  register, options}) => {
     return (
         <div>
         <LabelStyle htmlFor={id}>{label}</LabelStyle>
-        <SelectStyle id={id} type={type} {...register}>
+        <SelectStyle id={id} {...register}>
         <option hidden>{placeholder}</option>
         {options.map((opt) => 
         <option value={opt}>{opt}</option>

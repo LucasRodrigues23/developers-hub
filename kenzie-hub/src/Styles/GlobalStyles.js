@@ -33,11 +33,12 @@ button {
 .App {
     background: var(--color-grey-4);
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     align-content: center;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
 
 

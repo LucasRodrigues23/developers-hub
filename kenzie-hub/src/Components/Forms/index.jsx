@@ -3,7 +3,8 @@ import { FormStyle } from './styles'
 
 export const Form = ({children}) => {
   return (
-    <> <FormStyle>
+    <>
+    <FormStyle>
     {children}
     </FormStyle>
     </>
