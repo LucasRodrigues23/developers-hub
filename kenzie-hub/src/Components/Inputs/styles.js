@@ -12,7 +12,8 @@ export const InputStyle = styled.input`
     width: 100%;
     background-color: var(--color-grey-2);
     border: 1.2182px solid var(--color-grey-2);
-    border-radius: 4px;;
+    border-radius: 4px;
+    color: var(--color-grey-0);
 
     ::placeholder {
         color: var(--color-grey-1);

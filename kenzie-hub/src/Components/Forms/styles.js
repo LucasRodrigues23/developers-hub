@@ -12,6 +12,7 @@ export const FormStyle = styled.form`
     padding: 42px 22px;
     gap: 22px;
     margin-top: 35px;
+    margin-bottom: 50px;
 
     & > div {
         display: flex;
@@ -31,4 +32,28 @@ export const FormStyle = styled.form`
         font-size: 18px;
         color: var(--color-grey-0);
     }
+
+    & > p {
+        font-weight: 400;
+        font-size: 12px;
+        color: var(--color-negative);
+    }
+
+    & > a {
+    width: 100%;
+    background: var(--color-grey-1);
+    border: 1px solid var(--color-grey-1);
+    border-radius: 4px;
+    color: var(--color-grey-0);
+    text-align: center;
+
+    padding: 10.5px;
+    font-weight: 500;
+    font-size: 16px;
+
+    :hover {
+        background: var(--color-grey-2);
+        border: 1px solid var(--color-grey-2);
+    }
+}
 `

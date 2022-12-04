@@ -1,8 +1,6 @@
 export const allModules = [
-    'Primeiro Modulo',
-    'Segundo Modulo',
-    'Terceiro Modulo',
-    'Quarto Modulo',
-    'Quinto Modulo',
-    'Sexto Modulo',
+    'Primeiro módulo (Introdução ao Frontend)',
+    'Segundo módulo (Frontend Avançado)',
+    'Terceiro módulo (Introdução ao Backend)',
+    'Quarto módulo (Backend Avançado)',
 ]

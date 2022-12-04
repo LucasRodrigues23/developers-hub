@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle, css } from 'styled-components'
 
 export default createGlobalStyle`
 * {
@@ -6,6 +6,7 @@ export default createGlobalStyle`
   margin: 0;
   padding: 0;
   list-style: none;
+  text-decoration: none;
 }
 
 :root {
@@ -35,11 +36,7 @@ button {
     width: 100%;
     min-height: 100vh;
     display: flex;
-    align-content: center;
-    justify-content: center;
     align-items: center;
     flex-direction: column;
 }
-
-
 `

@@ -1,14 +1,14 @@
 import styled from "styled-components";
 
-export const RegisterBoxLogo = styled.div`
+export const NavBar = styled.div`
+    width: 100%;
+    height: 72px;
     display: flex;
+    justify-content: center;
+    align-items: center;
     align-content: center;
-    justify-content: space-between;
-    width: 95%;
-    max-width: 370px;
-    margin-top: 50px;
 
-    & > a {
+    & > div > a {
     background: var(--color-grey-2);
     border: 1px solid var(--color-grey-2);
     border-radius: 4px;
@@ -24,5 +24,4 @@ export const RegisterBoxLogo = styled.div`
         border: 1px solid var(--color-grey-1);
     }
 }
-
 `

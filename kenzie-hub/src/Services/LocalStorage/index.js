@@ -3,7 +3,7 @@ export const setToken = (token) => {
 }
 
 export const getToken = () => {
-    return JSON.parse(localStorage.getItem('@kenzie-hub:')) || []
+    return JSON.parse(localStorage.getItem('@kenzie-hub:')) || null
 }
 
 export const clearToken = () => {

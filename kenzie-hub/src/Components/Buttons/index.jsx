@@ -1,19 +1,11 @@
 import React from 'react'
-import { ButtonPrimary, ButtonGrey } from './styles'
+import { ButtonStyled, AncorStyled } from './styles'
 
-export const Button = ({children, type, btstyle}) => {
-    if (btstyle === 'primary') {
-         return (
+export const Button = ({children, type, btstyle, btsize, disabled}) => {
+
+    return (
     <>
-    <ButtonPrimary type={type}>{children}</ButtonPrimary>
+    <ButtonStyled type={type} btstyle={btstyle} btsize={btsize} disabled={disabled} >{children}</ButtonStyled>
     </>
-  )
-    }else  {
-        return (
-            <>
-            <ButtonGrey type={type}>{children}</ButtonGrey>
-            </>
-          )  
+         )
     }
- 
-}
