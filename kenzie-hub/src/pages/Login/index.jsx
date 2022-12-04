@@ -28,12 +28,10 @@ export const LoginPage = ({setUser}) => {
     })
 
     const userLogin = async (formData) => {
-      console.log(JSON.stringify(formData));
 
       try {
         setLoading(true)
         const res = await api.post('sessions', formData)
-        console.log(formData, res);
         toast.success(`Olá ${res.data.user.name}`, {theme: 'dark'})
         setToken(res.data.token)
         setUser(res.data.user)
