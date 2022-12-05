@@ -15,8 +15,9 @@ export const RegisterSchema = yup.object().shape({
     password: yup
     .string()
     .required('Este campo é orbigatório')
-    .min(6, 'A senha deve ter no minimo 6 caracteres')
-    .max(12, 'A senha pode ter no maximo 12 caracteres'),
+    .min(8, 'A senha deve ter no minimo 8 caracteres')
+    .max(12, 'A senha pode ter no maximo 12 caracteres')
+    .matches(/^(?=.*\d)(?=.*[a-z])(?=.*[$*&@#])[0-9a-zA-Z$*&@#]{8,}$/, 'Necessário pelo menos 1 letra, numero e simbolo'),
 
     confirmPassword: yup
     .string()

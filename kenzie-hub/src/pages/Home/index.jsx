@@ -5,7 +5,7 @@ import { Header } from '../../Components/Header/styles'
 import { Main } from '../../Components/Main/styles'
 import { NavBar } from '../../Components/NavBar/styles'
 import { ContainerBox } from '../../Styles/Container'
-import { clearToken } from '../../Services/LocalStorage'
+import { clearToken, clearUserId } from '../../Services/LocalStorage'
 import { HomeBox } from './styles'
 
 export const HomePage = ({user, setUser}) => {
@@ -14,6 +14,7 @@ export const HomePage = ({user, setUser}) => {
   const logout = () =>{
 
     clearToken()
+    clearUserId()
     setUser(null)
   }
   return (

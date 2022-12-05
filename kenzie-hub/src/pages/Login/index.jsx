@@ -10,11 +10,11 @@ import { LoginSchema } from './loginSchema'
 import { Link, useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import { api } from '../../Services/Api'
-import { setToken }  from '../../Services/LocalStorage'
+import { setToken, setUserId }  from '../../Services/LocalStorage'
 import { LogoLogin } from "./styles";
 
 export const LoginPage = ({setUser}) => {
-
+  
     const [loading, setLoading] = useState(false)
     const navigate = useNavigate()
 
@@ -34,6 +34,7 @@ export const LoginPage = ({setUser}) => {
         const res = await api.post('sessions', formData)
         toast.success(`Olá ${res.data.user.name}`, {theme: 'dark'})
         setToken(res.data.token)
+        setUserId(res.data.user.id)
         setUser(res.data.user)
         navigate('/home')
       
