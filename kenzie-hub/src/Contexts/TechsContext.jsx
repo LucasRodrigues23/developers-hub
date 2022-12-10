@@ -26,13 +26,11 @@ export const TechsProvider = ({children}) => {
           toast.success(`Tenologia adicionada`, {theme: 'dark'})
         } catch (error) {
           toast.error(`Você já possui está tecnologia`, {theme: 'dark'})
-        } finally {
-          setLoading(false)
-        }
+        } 
     }
 
     const editTechStatus = async (formdata, techId) => {
-      console.log(formdata);
+    
       const token = getToken()
       try {
         setLoading(true)
@@ -43,8 +41,6 @@ export const TechsProvider = ({children}) => {
         toast.success(`Tenologia Atualizada`, {theme: 'dark'})
       } catch (error) {
         toast.error(`Ops Algo deu errado`, {theme: 'dark'})
-      } finally {
-        setLoading(false)
       }
     }
 
@@ -60,7 +56,6 @@ export const TechsProvider = ({children}) => {
         } catch (error) {
           toast.error(`Algo deu errado tente novamente`, {theme: 'dark'})
         } finally {
-          setLoading(false)
           setShowModal2(false)
         }
       }

@@ -5,6 +5,7 @@ import { toast } from 'react-toastify'
 import { clearToken, clearUserId, getToken, setToken, setUserId }  from '../Services/LocalStorage/index'
 import { api } from'../Services/Api'
 import { useEffect } from "react"
+import { LoadingBg } from "../Styles/LoadingBg"
 
 export const UserContext = createContext({})
 
@@ -15,7 +16,7 @@ export const  UserProvider = ({children}) =>{
 const [loading, setLoading] = useState(true)
 const [user, setUser] = useState(null)
 const navigate = useNavigate()
-
+console.log(loading);
 
 useEffect(() => {
     const authUser = async () => {
@@ -84,9 +85,16 @@ const userLogin = async (data) => {
     }
   }
 
+  if (loading) {
+    return (
+      <>
+        <LoadingBg></LoadingBg>
+      </>
+    )
+  } else {
     return (
         <UserContext.Provider value={{userLogin, userRegister, loading, setLoading, user}}>
             {children}
         </UserContext.Provider>
-    )
+    )}
 }

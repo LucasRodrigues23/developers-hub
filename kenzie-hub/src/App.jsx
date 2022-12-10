@@ -19,6 +19,6 @@ export const App = () => {
       </UserProvider>
       <ToastContainer />
     </div>
-  );
+  )
 }
 

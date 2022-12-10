@@ -14,11 +14,11 @@ import { Modal } from '../../Components/Modal'
 import { FormAddTech } from '../../Components/FormAddTech'
 import { TechsContext } from '../../Contexts/TechsContext'
 import { FormEditTech } from '../../Components/FormEditTech'
+import { LoadingBg } from '../../Styles/LoadingBg'
 
 export const HomePage = () => {
-  const { user } = useContext(UserContext)
+  const { user, loading } = useContext(UserContext)
   const navigate = useNavigate()
-
   const { techs, editTech, showModal, setShowModal, showModal2, setShowModal2 } = useContext(TechsContext)
 
 
@@ -27,7 +27,8 @@ export const HomePage = () => {
     clearUserId()
     navigate('/login')
   }
- 
+
+
   return (
     <HomeBox>
       {showModal && <Modal setShowModal={setShowModal} title={'Cadastrar Tecnologia'}><FormAddTech setShowModal={setShowModal}></FormAddTech> </Modal>}
@@ -59,5 +60,6 @@ export const HomePage = () => {
     </Main>
     </HomeBox>
   )
+        
   }
   
