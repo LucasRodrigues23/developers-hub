@@ -14,7 +14,6 @@ import { Modal } from '../../Components/Modal'
 import { FormAddTech } from '../../Components/FormAddTech'
 import { TechsContext } from '../../Contexts/TechsContext'
 import { FormEditTech } from '../../Components/FormEditTech'
-import { LoadingBg } from '../../Styles/LoadingBg'
 
 export const HomePage = () => {
   const { user, loading } = useContext(UserContext)

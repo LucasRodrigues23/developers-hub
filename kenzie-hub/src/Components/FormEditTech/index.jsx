@@ -15,7 +15,6 @@ export const FormEditTech = ({tech}) => {
       mode: 'onBlur',
       defaultValues: {
         title: tech.title,
-        status: 'selecionar',
       },
       resolver: yupResolver(EditTechSchema)
     })
