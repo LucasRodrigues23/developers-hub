@@ -31,7 +31,16 @@ export const ButtonStyled = styled.button`
                              background: var(--color-grey-2);
                              border: 1px solid var(--color-grey-2);
                      }
-                ` 
+                `
+            case 'lightgrey':
+                return css`
+                    background: var(--color-grey-3);
+                    border: 1px solid var(--color-grey-3);
+                    :hover {
+                             background: var(--color-grey-1);
+                             border: 1px solid var(--color-grey-1);
+                     }
+                `      
                         }
     }}
 

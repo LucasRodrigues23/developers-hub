@@ -8,6 +8,12 @@ export const Header = styled.header`
     justify-content: center;
     color: var(--color-grey-0);
 
+    & > div {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+
     & > div > p {
         color: var(--color-grey-1);
     }

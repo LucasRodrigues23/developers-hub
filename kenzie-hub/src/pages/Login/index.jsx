@@ -5,19 +5,15 @@ import Logo from'../../Assets/Logo.svg'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { FormStyle } from '../../Components/Forms/styles'
-import { useState } from 'react'
 import { LoginSchema } from './loginSchema'
-import { Link, useNavigate } from 'react-router-dom'
-import { toast } from 'react-toastify'
-import { api } from '../../Services/Api'
-import { setToken, setUserId }  from '../../Services/LocalStorage'
+import { Link } from 'react-router-dom'
 import { LogoLogin } from "./styles";
+import { useContext } from 'react'
+import { UserContext } from '../../Contexts/UserContext'
+import { InputPassword } from '../../Components/InputPassword'
 
-export const LoginPage = ({setUser}) => {
+export const LoginPage = () => {
   
-    const [loading, setLoading] = useState(false)
-    const navigate = useNavigate()
-
     const { register, handleSubmit, formState: {errors}, reset} = useForm({
       mode: 'onBlur',
       defaultValues: {
@@ -27,42 +23,22 @@ export const LoginPage = ({setUser}) => {
       resolver: yupResolver(LoginSchema)
     })
 
-    const userLogin = async (formData) => {
+    const { userLogin, loading } = useContext(UserContext)
 
-      try {
-        setLoading(true)
-        const res = await api.post('sessions', formData)
-        toast.success(`Olá ${res.data.user.name}`, {theme: 'dark'})
-        setToken(res.data.token)
-        setUserId(res.data.user.id)
-        setUser(res.data.user)
-        navigate('/home')
-      
-
-      } catch (error) {
-        toast.error('Algo deu errado, tente novamente', {theme: 'dark'})
-     
-      } finally {
-        setLoading(false)
-      }
-    }
-
-    const submit = async (data) => {
-      await userLogin(data)
+    const submit = (data) => {
+      userLogin(data)
       reset()
-    } 
-
+    }
 
   return (
     <>
       <LogoLogin src={Logo} alt="Logo"/>  
       <FormStyle onSubmit={handleSubmit(submit)} >
         <h2>Login</h2>
-
         <Input label={'Email'} id={'email'} type={'text'} placeholder={'Email'} register={register('email')} disabled={loading} />
         
         
-        <Input label={'Senha'} id={'senha'} type={'password'} placeholder={'Senha'} register={register('password')} disabled={loading}/>
+        <InputPassword label={'Senha'} id={'senha'} type={'password'} placeholder={'Senha'} register={register('password')} disabled={loading}/>
        
        
        {}

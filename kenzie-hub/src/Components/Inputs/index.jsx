@@ -1,18 +1,18 @@
 import React from 'react'
-import { InputStyle, SelectStyle, LabelStyle } from './styles'
+import { InputStyle, SelectStyle, LabelStyle, InputBox } from './styles'
 
 export const Input = ({label, id, type, placeholder, register, disabled}) => {
   return (
-    <div>
+    <InputBox>
     <LabelStyle htmlFor={id}>{label}</LabelStyle>
     <InputStyle id={id} type={type} placeholder={placeholder} {...register} disabled={disabled}></InputStyle>
-    </div>
+    </InputBox>
   )
 }
 
 export const Select = ({label, id, placeholder,  register, options}) => {
     return (
-        <div>
+        <InputBox>
         <LabelStyle htmlFor={id}>{label}</LabelStyle>
         <SelectStyle id={id} {...register}>
         <option hidden>{placeholder}</option>
@@ -20,7 +20,7 @@ export const Select = ({label, id, placeholder,  register, options}) => {
         <option key={i} value={opt}>{opt}</option>
         )}
         </SelectStyle>
-        </div>
+        </InputBox>
 
     )
 }

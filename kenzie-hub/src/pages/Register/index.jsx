@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Logo from '../../Assets/Logo.svg'
 import { Input, Select } from '../../Components/Inputs'
 import { Button } from '../../Components/Buttons'
@@ -8,13 +8,12 @@ import { RegisterSchema } from './registerSchema'
 import { FormStyle } from '../../Components/Forms/styles'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
-import { api } from '../../Services/Api'
-import { toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
-import { Link, useNavigate } from'react-router-dom'
+import { Link } from'react-router-dom'
+import { InputPassword } from '../../Components/InputPassword'
+import { useContext } from 'react'
+import { UserContext } from '../../Contexts/UserContext'
 export const RegisterPage = () => {
-  const [loading, setLoading] = useState(false)
-  const navigate = useNavigate()
 
   const { register, handleSubmit, formState: {errors}, reset} = useForm({
     mode: 'onBlur',
@@ -29,25 +28,13 @@ export const RegisterPage = () => {
     resolver: yupResolver(RegisterSchema)
   })
 
-  const userRegister = async (formData) => {
-    try {
-      setLoading(true)
-      const res = await api.post('/users', formData)
+  const {userRegister, loading} = useContext(UserContext)
 
-      toast.success('Cadastro realizado com Sucesso!', {theme: 'dark'})
-      reset()
-      navigate('/login')
-      
-      
-    } catch (error) {
-      toast.error(error.response.data.message , {theme: 'dark'})
-    } finally {
-      setLoading(false)
-    }
+  const submit = (data) => {
+    userRegister(data)
+    reset()
   }
-  const submit = async (data) => {
-    await userRegister(data)
-  }
+
   return (
     <>
     <RegisterBoxLogo className='register-logo-box'>
@@ -64,10 +51,10 @@ export const RegisterPage = () => {
       <Input disabled={loading} label={'Email'} id={'email'} type={'email'} placeholder={'Digite aqui seu email'} register={register('email')}/>
       {errors.email && <p>{errors.email.message}</p>}
       
-      <Input disabled={loading} label={'Senha'} id={'passowrd'} type={'password'} placeholder={'Digite aqui sua senha'} register={register('password')}/>
+      <InputPassword disabled={loading} label={'Senha'} id={'passowrd'} type={'password'} placeholder={'Digite aqui sua senha'} register={register('password')}/>
       {errors.password && <p>{errors.password.message}</p>}
       
-      <Input disabled={loading} label={'Confirmar senha'} id={'confirmPassword'} type={'password'} placeholder={'Digite novamente sua senha'} register={register('confirmPassword')}/>
+      <InputPassword disabled={loading} label={'Confirmar senha'} id={'confirmPassword'} type={'password'} placeholder={'Digite novamente sua senha'} register={register('confirmPassword')}/>
       {errors.confirmPassword && <p>{errors.confirmPassword.message}</p>}
       
       <Input disabled={loading} label={'Bio'} id={'bio'} type={'text'} placeholder={'Fale sobre você'} register={register('bio')}/>

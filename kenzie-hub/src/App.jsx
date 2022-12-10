@@ -3,16 +3,17 @@ import Global from './Styles/GlobalStyles'
 import { BasicRoutes } from './Routes';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { UserContext, UserProvider } from './Contexts/UserContext';
 
 
 export const App = () => {
 
-  const [user, setUser] = useState(null)
-
   return (
     <div className="App">
       <Global />
-      <BasicRoutes setUser={setUser} user={user}/>
+      <UserProvider>
+        <BasicRoutes />
+      </UserProvider>
       <ToastContainer />
     </div>
   );

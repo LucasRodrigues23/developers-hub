@@ -1,6 +1,11 @@
 import styled from'styled-components'
 
-
+export const InputBox = styled.div`
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        gap: 10px;
+`
 export const LabelStyle = styled.label`
     color: var(--color-grey-0);
     font-weight: 400;

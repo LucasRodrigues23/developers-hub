@@ -14,13 +14,6 @@ export const FormStyle = styled.form`
     margin-top: 35px;
     margin-bottom: 50px;
 
-    & > div {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        gap: 10px;
-    }
-
     & > span {
         color: var(--color-grey-1);
         font-weight: 600;
