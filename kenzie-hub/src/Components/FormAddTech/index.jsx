@@ -6,13 +6,11 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import { AddTechSchema } from './AddTechSchema'
 import { FormTechStyled } from './styles'
 import { ButtonStyled } from '../Buttons/styles'
-import { getToken } from '../../Services/LocalStorage'
-import { api } from '../../Services/Api'
-import { toast } from 'react-toastify'
-import { UserContext } from '../../Contexts/UserContext'
+import { TechsContext } from '../../Contexts/TechsContext'
 
-export const FormAddTech = ({setShowModal}) => {
-  const { setLoading } = useContext(UserContext)
+export const FormAddTech = () => {
+  const { addTech, setShowModal } = useContext(TechsContext)
+
   const { register, handleSubmit, formState: {errors}, reset} = useForm({
     mode: 'onBlur',
     defaultValues: {
@@ -22,24 +20,9 @@ export const FormAddTech = ({setShowModal}) => {
     resolver: yupResolver(AddTechSchema)
   })
 
-  const AddTech = async (formdata) => {
-      const token = getToken()
-      try {
-        setLoading(true)
-        const { data } = await api.post('/users/techs', formdata, {
-          headers: {
-          authorization: `Bearer ${token}` }
-        })
-        toast.success(`Tenologia adicionada`, {theme: 'dark'})
-      } catch (error) {
-        toast.error(`Você já possui está tecnologia`, {theme: 'dark'})
-      } finally {
-        setLoading(false)
-      }
-  }
 
   const submit = (data) => {
-    AddTech(data)
+    addTech(data)
     reset()
     setShowModal(false)
   }

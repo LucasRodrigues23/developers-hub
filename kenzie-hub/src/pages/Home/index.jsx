@@ -5,39 +5,22 @@ import { Header } from '../../Components/Header/styles'
 import { Main } from '../../Components/Main/styles'
 import { NavBar } from '../../Components/NavBar/styles'
 import { ContainerBox } from '../../Styles/Container'
-import { clearToken, clearUserId, getToken } from '../../Services/LocalStorage'
-import { HomeBox, Loader, TechList, TechListCard, TechTitleBox } from './styles'
+import { clearToken, clearUserId } from '../../Services/LocalStorage'
+import { HomeBox, TechList, TechListCard, TechTitleBox } from './styles'
 import { ButtonStyled } from '../../Components/Buttons/styles'
 import { useContext } from 'react'
 import { UserContext } from '../../Contexts/UserContext'
-import { useState } from 'react'
 import { Modal } from '../../Components/Modal'
 import { FormAddTech } from '../../Components/FormAddTech'
-import { FaRegTrashAlt } from 'react-icons/fa'
-import { api } from '../../Services/Api'
-import { toast } from 'react-toastify'
+import { TechsContext } from '../../Contexts/TechsContext'
+import { FormEditTech } from '../../Components/FormEditTech'
 
 export const HomePage = () => {
-  const { setLoading } = useContext(UserContext)
-  const [showModal, setShowModal] =  useState(false)
   const { user } = useContext(UserContext)
   const navigate = useNavigate()
 
-  const removeTechnology = async (techId) => {
-    const token = getToken()
-    try {
-      setLoading(true)
-      const res = await api.delete(`/users/techs/${techId}`, {
-        headers: {
-        authorization: `Bearer ${token}` }
-      })
-      toast.success(`Tenologia removida`, {theme: 'dark'})
-    } catch (error) {
-      toast.error(`Algo deu errado tente novamente`, {theme: 'dark'})
-    } finally {
-      setLoading(false)
-    }
-  }
+  const { techs, editTech, showModal, setShowModal, showModal2, setShowModal2 } = useContext(TechsContext)
+
 
   const logout = () =>{
     clearToken()
@@ -48,6 +31,7 @@ export const HomePage = () => {
   return (
     <HomeBox>
       {showModal && <Modal setShowModal={setShowModal} title={'Cadastrar Tecnologia'}><FormAddTech setShowModal={setShowModal}></FormAddTech> </Modal>}
+      {showModal2 && <Modal setShowModal={setShowModal2} title={'Editar Tecnologia'}><FormEditTech tech={techs} setShowModal2={setShowModal2}></FormEditTech> </Modal>}
     <NavBar>
       <ContainerBox>
       <img src={Logo} alt="Logo" />
@@ -67,12 +51,9 @@ export const HomePage = () => {
       </TechTitleBox>
       <TechList>
         {user.techs.map((tech, i) => 
-        <TechListCard key={i}>
+        <TechListCard key={i} onClick={() => editTech(tech)}>
           <p>{tech.title}</p>
-          <div>
             <span>{tech.status}</span>
-            <button type='button' onClick={() => removeTechnology(tech.id)}><FaRegTrashAlt /></button>
-            </div>
         </TechListCard>)}
       </TechList>
     </Main>

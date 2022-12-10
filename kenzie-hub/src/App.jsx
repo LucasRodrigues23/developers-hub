@@ -4,6 +4,7 @@ import { BasicRoutes } from './Routes';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { UserContext, UserProvider } from './Contexts/UserContext';
+import { TechsProvider } from './Contexts/TechsContext';
 
 
 export const App = () => {
@@ -12,7 +13,9 @@ export const App = () => {
     <div className="App">
       <Global />
       <UserProvider>
-        <BasicRoutes />
+        <TechsProvider>
+          <BasicRoutes />
+        </TechsProvider>
       </UserProvider>
       <ToastContainer />
     </div>

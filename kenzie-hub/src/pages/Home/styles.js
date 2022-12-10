@@ -92,23 +92,10 @@ export const TechListCard = styled.li`
         font-size: 16px;
     }
 
-    & > div {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 25px;
-
-        & > span {
-            font-weight: 400;
-            font-size: 12px;
-            color: var(--color-grey-1);
-        }
-
-        & > button {
-            background-color: transparent;
-            border-style: none;
-            color: var(--color-grey-1);
-        }
+    & > span {
+        font-weight: 400;
+        font-size: 12px;
+         color: var(--color-grey-1);
     }
 
     :hover {
