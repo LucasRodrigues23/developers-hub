@@ -1,6 +1,6 @@
 import React from 'react'
 import { Input } from'../../Components/Inputs'
-import { Button} from'../../Components/Buttons'
+import { Button } from'../../Components/Buttons'
 import Logo from'../../Assets/Logo.svg'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
@@ -32,7 +32,7 @@ export const LoginPage = () => {
 
   return (
     <>
-      <LogoLogin src={Logo} alt="Logo"/>  
+      <LogoLogin src={Logo} alt="Logo"/>
       <FormStyle onSubmit={handleSubmit(submit)} >
         <h2>Login</h2>
         <Input label={'Email'} id={'email'} type={'text'} placeholder={'Email'} register={register('email')} disabled={loading} />

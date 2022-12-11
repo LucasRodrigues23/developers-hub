@@ -22,11 +22,11 @@ export const clearUserId = () => {
     localStorage.removeItem('@kenzie-hub-id:')
 }
 
-export const setDarkMode = (theme) => {
-    localStorage.setItem('@kenzie-hub-dark-mode:', JSON.stringify(theme))
+export const setDarkMode = () => {
+    localStorage.setItem('@kenzie-hub-dark-mode:', JSON.stringify(!getDarkMode()))
 }
 
 export const getDarkMode = () => {
-    return JSON.parse(localStorage.getItem('@kenzie-hub-dark-mode:')) || []
+    return JSON.parse(localStorage.getItem('@kenzie-hub-dark-mode:'))
 }
 

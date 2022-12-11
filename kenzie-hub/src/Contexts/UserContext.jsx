@@ -2,7 +2,7 @@ import { useState } from "react"
 import { createContext } from "react"
 import { useNavigate } from "react-router-dom"
 import { toast } from 'react-toastify'
-import { clearToken, clearUserId, getToken, setToken, setUserId }  from '../Services/LocalStorage/index'
+import { clearToken, clearUserId, getDarkMode, getToken, setDarkMode, setToken, setUserId }  from '../Services/LocalStorage/index'
 import { api } from'../Services/Api'
 import { useEffect } from "react"
 import { LoadingBg } from "../Styles/LoadingBg"
@@ -16,8 +16,7 @@ export const  UserProvider = ({children}) =>{
 const [loading, setLoading] = useState(true)
 const [user, setUser] = useState(null)
 const navigate = useNavigate()
-
-
+const [isDark, setIsDark] = useState(getDarkMode() ? getDarkMode() : true)
 useEffect(() => {
     const authUser = async () => {
       const token = getToken()
@@ -47,9 +46,7 @@ useEffect(() => {
     }
     authUser()
 
-
 }, [loading]) 
-
 const userLogin = async (data) => {
 
     try {
@@ -93,7 +90,7 @@ const userLogin = async (data) => {
     )
   } else {
     return (
-        <UserContext.Provider value={{userLogin, userRegister, loading, setLoading, user}}>
+        <UserContext.Provider value={{userLogin, userRegister, loading, setLoading, user, isDark, setIsDark}}>
             {children}
         </UserContext.Provider>
     )}

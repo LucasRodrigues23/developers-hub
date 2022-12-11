@@ -37,7 +37,7 @@ export const FormStyle = styled.form`
     background: var(--color-grey-1);
     border: 1px solid var(--color-grey-1);
     border-radius: 4px;
-    color: var(--color-grey-0);
+    color: #F8F9FA;
     text-align: center;
 
     padding: 10.5px;

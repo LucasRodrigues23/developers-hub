@@ -35,7 +35,9 @@ export const HomePage = () => {
     <NavBar>
       <ContainerBox>
       <img src={Logo} alt="Logo" />
-      <ButtonStyled type={'button'} btstyle={'lightgrey'} btsize={'md'} onClick={logout}>Sair</ButtonStyled>
+        <ButtonStyled type={'button'} btstyle={'lightgrey'} btsize={'md'} onClick={logout}>Sair</ButtonStyled>
+
+      
       </ContainerBox>
     </NavBar>
     <Header>

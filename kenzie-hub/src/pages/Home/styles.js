@@ -43,7 +43,7 @@ export const TechTitleBox = styled.div`
     & > button {
         font-weight: 600;
         font-size: 16px;
-        color: var(--color-grey-0);
+        color: #F8F9FA;
         background-color: var(--color-grey-3);
         border-radius: 4px;
         padding: 10px;

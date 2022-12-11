@@ -7,6 +7,7 @@ export const NavBar = styled.div`
     justify-content: center;
     align-items: center;
     align-content: center;
+    background-color: var(--color-grey-4);
 
     & > div > a {
     background: var(--color-grey-2);
