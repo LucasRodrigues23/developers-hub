@@ -25,6 +25,44 @@ export default createGlobalStyle`
 body {
     font-family: 'Inter', sans-serif;
     overflow-x: hidden;
+    background-color: var(--color-grey-4);
+    animation: theme 21s linear infinite;
+    
+    &:after,
+    &:before {
+        content: '';
+        display: block;
+        position: fixed;
+        z-index: -1;
+        top: 0;
+        width: 100vw;
+        height: 100vh; 
+        width: 100vmax;
+        height: 100vmax;
+        background: rgba(0, 0, 0, 0.2);
+        animation: background 90s linear infinite;
+    }
+
+    &:after {
+        left: 15vw;
+    }
+
+    &:before {
+        right: 15vw;
+        animation-delay: -30s;
+        animation-direction: reverse;
+    }
+}
+
+
+@keyframes background {
+    0% {
+        transform: rotate(0deg);
+    }
+    
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 button {
@@ -32,11 +70,11 @@ button {
 }
 
 .App {
-    background: var(--color-grey-4);
     width: 100%;
     min-height: 100vh;
     display: flex;
     align-items: center;
     flex-direction: column;
 }
+
 `

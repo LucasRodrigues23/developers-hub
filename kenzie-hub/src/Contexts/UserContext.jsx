@@ -16,7 +16,7 @@ export const  UserProvider = ({children}) =>{
 const [loading, setLoading] = useState(true)
 const [user, setUser] = useState(null)
 const navigate = useNavigate()
-console.log(loading);
+
 
 useEffect(() => {
     const authUser = async () => {
