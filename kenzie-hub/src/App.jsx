@@ -14,9 +14,9 @@ export const App = () => {
 
   return (
     <div className="App">
-      <ThemeButton />
       <Global isDark={isDark}/>
         <TechsProvider>
+          <ThemeButton />
           <BasicRoutes />
         </TechsProvider>
       <ToastContainer />

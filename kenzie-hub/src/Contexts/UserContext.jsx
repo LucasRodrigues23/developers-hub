@@ -12,11 +12,12 @@ export const UserContext = createContext({})
 
 
 export const  UserProvider = ({children}) =>{
-const theme = (getDarkMode())
+
 const [loading, setLoading] = useState(true)
 const [user, setUser] = useState(null)
 const navigate = useNavigate()
 const [isDark, setIsDark] = useState(getDarkMode() === 'dark' ? true : false)
+
 useEffect(() => {
     const authUser = async () => {
       const token = getToken()
@@ -81,17 +82,10 @@ const userLogin = async (data) => {
       setLoading(false)
     }
   }
-
-  if (loading) {
-    return (
-      <>
-        <LoadingBg></LoadingBg>
-      </>
-    )
-  } else {
+  
     return (
         <UserContext.Provider value={{userLogin, userRegister, loading, setLoading, user, isDark, setIsDark}}>
             {children}
         </UserContext.Provider>
-    )}
+    )
 }
