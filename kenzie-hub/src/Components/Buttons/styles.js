@@ -3,7 +3,7 @@ import styled, { css } from'styled-components'
 export const ButtonStyled = styled.button`
     
     border-radius: 4px;
-    color: var(--color-grey-0);
+    color: #F8F9FA;
 
     
 
@@ -62,4 +62,30 @@ export const ButtonStyled = styled.button`
         }
     }}
 
+`
+
+export const ThemeButtonStyled = styled.button`
+    border-style: none;
+    align-items: center;
+    font-size: 16px;
+    width: 100%;
+    height: 20px;
+
+    ${({isDark}) => {
+        switch (isDark) {
+            case false:
+                return css`
+                background-color: white;
+                color: grey;
+            `
+            default:
+            case true:
+            return css`
+                background-color: black;
+                color: grey;
+            `  
+            
+            
+        }
+    }}
 `

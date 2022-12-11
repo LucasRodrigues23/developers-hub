@@ -27,6 +27,6 @@ export const setDarkMode = (theme) => {
 }
 
 export const getDarkMode = () => {
-    return JSON.parse(localStorage.getItem('@kenzie-hub-dark-mode:')) || []
+    return JSON.parse(localStorage.getItem('@kenzie-hub-dark-mode:')) || 'dark'
 }
 

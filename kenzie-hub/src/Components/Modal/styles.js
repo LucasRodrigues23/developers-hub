@@ -11,6 +11,19 @@ export const ModalWrapper = styled.div`
     height: 100vh;
     z-index: 99;
     background: rgba(18, 18, 20, 0.5);
+    
+    animation: animationModal 400ms ease forwards;
+
+    @keyframes animationModal{
+    0% {
+        transform: translateY(20px);
+        opacity: 0%;
+    }
+    100% {
+        transform: translateY(0px);
+        opacity: 100%;
+    }
+}
 ` 
 
 export const ModalBox = styled.div`

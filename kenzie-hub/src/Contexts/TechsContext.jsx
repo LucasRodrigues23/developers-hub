@@ -23,9 +23,9 @@ export const TechsProvider = ({children}) => {
             headers: {
             authorization: `Bearer ${token}` }
           })
-          toast.success(`Tenologia adicionada`, {theme: 'dark'})
+          toast.success(`Tenologia adicionada`, {theme: 'dark', autoClose: 2000})
         } catch (error) {
-          toast.error(`Você já possui está tecnologia`, {theme: 'dark'})
+          toast.error(`Você já possui está tecnologia`, {theme: 'dark', autoClose: 2000})
         } 
     }
 
@@ -38,9 +38,9 @@ export const TechsProvider = ({children}) => {
           headers: {
           authorization: `Bearer ${token}` }
         })
-        toast.success(`Tenologia Atualizada`, {theme: 'dark'})
+        toast.success(`Tenologia Atualizada`, {theme: 'dark', autoClose: 2000})
       } catch (error) {
-        toast.error(`Ops Algo deu errado`, {theme: 'dark'})
+        toast.error(`Ops Algo deu errado`, {theme: 'dark', autoClose: 2000})
       }
     }
 
@@ -52,9 +52,9 @@ export const TechsProvider = ({children}) => {
             headers: {
             authorization: `Bearer ${token}` }
           })
-          toast.success(`Tenologia removida`, {theme: 'dark'})
+          toast.success(`Tenologia removida`, {theme: 'dark', autoClose: 2000})
         } catch (error) {
-          toast.error(`Algo deu errado tente novamente`, {theme: 'dark'})
+          toast.error(`Algo deu errado tente novamente`, {theme: 'dark', autoClose: 2000})
         } finally {
           setShowModal2(false)
         }

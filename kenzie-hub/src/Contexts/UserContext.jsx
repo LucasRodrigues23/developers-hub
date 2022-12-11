@@ -2,7 +2,7 @@ import { useState } from "react"
 import { createContext } from "react"
 import { useNavigate } from "react-router-dom"
 import { toast } from 'react-toastify'
-import { clearToken, clearUserId, getToken, setToken, setUserId }  from '../Services/LocalStorage/index'
+import { clearToken, clearUserId, getDarkMode, getToken, setDarkMode, setToken, setUserId }  from '../Services/LocalStorage/index'
 import { api } from'../Services/Api'
 import { useEffect } from "react"
 import { LoadingBg } from "../Styles/LoadingBg"
@@ -16,7 +16,7 @@ export const  UserProvider = ({children}) =>{
 const [loading, setLoading] = useState(true)
 const [user, setUser] = useState(null)
 const navigate = useNavigate()
-console.log(loading);
+const [isDark, setIsDark] = useState(getDarkMode() === 'dark' ? true : false)
 
 useEffect(() => {
     const authUser = async () => {
@@ -47,15 +47,13 @@ useEffect(() => {
     }
     authUser()
 
-
 }, [loading]) 
-
 const userLogin = async (data) => {
 
     try {
       setLoading(true)
       const res = await api.post('sessions', data)
-      toast.success(`Olá ${res.data.user.name}`, {theme: 'dark'})
+      toast.success(`Olá ${res.data.user.name}`, {theme: 'dark', autoClose: 2000})
       setToken(res.data.token)
       setUserId(res.data.user.id)
       setUser(res.data.user)
@@ -63,7 +61,7 @@ const userLogin = async (data) => {
     
 
     } catch (error) {
-      toast.error('Algo deu errado, tente novamente', {theme: 'dark'})
+      toast.error('Algo deu errado, tente novamente', {theme: 'dark', autoClose: 2000})
       
     } finally {
       setLoading(false)
@@ -75,26 +73,19 @@ const userLogin = async (data) => {
       setLoading(true)
       const res = await api.post('/users', data)
 
-      toast.success('Cadastro realizado com Sucesso!', {theme: 'dark'})
+      toast.success('Cadastro realizado com Sucesso!', {theme: 'dark', autoClose: 2000})
       navigate('/login')
       
     } catch (error) {
-      toast.error(error.response.data.message , {theme: 'dark'})
+      toast.error(error.response.data.message , {theme: 'dark', autoClose: 2000})
     } finally {
       setLoading(false)
     }
   }
-
-  if (loading) {
+  
     return (
-      <>
-        <LoadingBg></LoadingBg>
-      </>
-    )
-  } else {
-    return (
-        <UserContext.Provider value={{userLogin, userRegister, loading, setLoading, user}}>
+        <UserContext.Provider value={{userLogin, userRegister, loading, setLoading, user, isDark, setIsDark}}>
             {children}
         </UserContext.Provider>
-    )}
+    )
 }

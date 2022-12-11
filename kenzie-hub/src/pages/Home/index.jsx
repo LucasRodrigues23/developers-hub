@@ -14,7 +14,6 @@ import { Modal } from '../../Components/Modal'
 import { FormAddTech } from '../../Components/FormAddTech'
 import { TechsContext } from '../../Contexts/TechsContext'
 import { FormEditTech } from '../../Components/FormEditTech'
-import { LoadingBg } from '../../Styles/LoadingBg'
 
 export const HomePage = () => {
   const { user, loading } = useContext(UserContext)
@@ -36,7 +35,9 @@ export const HomePage = () => {
     <NavBar>
       <ContainerBox>
       <img src={Logo} alt="Logo" />
-      <ButtonStyled type={'button'} btstyle={'lightgrey'} btsize={'md'} onClick={logout}>Sair</ButtonStyled>
+        <ButtonStyled type={'button'} btstyle={'lightgrey'} btsize={'md'} onClick={logout}>Sair</ButtonStyled>
+
+      
       </ContainerBox>
     </NavBar>
     <Header>
@@ -50,13 +51,14 @@ export const HomePage = () => {
         <h2>Técnologias</h2>
         <button onClick={() => setShowModal(true)}>+</button>
       </TechTitleBox>
-      <TechList>
+      {user.techs.length > 0 ? <TechList>
         {user.techs.map((tech, i) => 
         <TechListCard key={i} onClick={() => editTech(tech)}>
           <p>{tech.title}</p>
             <span>{tech.status}</span>
         </TechListCard>)}
-      </TechList>
+      </TechList> : <h2>Você ainda não possui nenhuma tecnologia adicionada :(</h2>}
+      
     </Main>
     </HomeBox>
   )
