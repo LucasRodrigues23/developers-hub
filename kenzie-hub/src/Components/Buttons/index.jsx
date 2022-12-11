@@ -17,6 +17,6 @@ export const ThemeButton = () => {
      
 
      return (
-          <ThemeButtonStyled isDark={isDark} onClick={() => setIsDark(!isDark, setDarkMode())}>{isDark ? 'Light mode' : 'Dark mode'}</ThemeButtonStyled>
+          <ThemeButtonStyled isDark={isDark} onClick={() => setIsDark(!isDark, setDarkMode(isDark ? 'light': 'dark'))}>{!isDark ? 'Dark mode' : 'Light mode'}</ThemeButtonStyled>
      )
 }

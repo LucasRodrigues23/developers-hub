@@ -12,11 +12,11 @@ export const UserContext = createContext({})
 
 
 export const  UserProvider = ({children}) =>{
-
+const theme = (getDarkMode())
 const [loading, setLoading] = useState(true)
 const [user, setUser] = useState(null)
 const navigate = useNavigate()
-const [isDark, setIsDark] = useState(getDarkMode() ? getDarkMode() : true)
+const [isDark, setIsDark] = useState(getDarkMode() === 'dark' ? true : false)
 useEffect(() => {
     const authUser = async () => {
       const token = getToken()

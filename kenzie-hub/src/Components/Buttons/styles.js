@@ -73,17 +73,19 @@ export const ThemeButtonStyled = styled.button`
 
     ${({isDark}) => {
         switch (isDark) {
-            case true:
-            return css`
-                background-color: black;
-                color: grey;
-            `  
-            default:
             case false:
                 return css`
                 background-color: white;
                 color: grey;
             `
+            default:
+            case true:
+            return css`
+                background-color: black;
+                color: grey;
+            `  
+            
+            
         }
     }}
 `
