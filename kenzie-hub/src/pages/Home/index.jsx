@@ -34,7 +34,7 @@ export const HomePage = () => {
       {showModal2 && <Modal setShowModal={setShowModal2} title={'Editar Tecnologia'}><FormEditTech tech={techs} setShowModal2={setShowModal2}></FormEditTech> </Modal>}
     <NavBar>
       <ContainerBox>
-      <img src={Logo} alt="Logo" />
+      <img src={Logo} alt='Logo' />
         <ButtonStyled type={'button'} btstyle={'lightgrey'} btsize={'md'} onClick={logout}>Sair</ButtonStyled>
 
       

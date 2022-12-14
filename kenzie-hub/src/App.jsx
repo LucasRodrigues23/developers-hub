@@ -15,7 +15,7 @@ export const App = () => {
 
   if (loading) {
     return (
-      <div className="App">
+      <div className='App'>
         <Global isDark={isDark}/>
         <LoadingBg>
           <LoadingAnimation>
@@ -25,7 +25,7 @@ export const App = () => {
     )
   } else {
     return (
-    <div className="App">
+    <div className='App'>
       <Global isDark={isDark}/>
         <TechsProvider>
           <ThemeButton />

@@ -1,10 +1,10 @@
-import { useState } from "react";
-import { useContext } from "react";
-import { createContext } from "react";
-import { toast } from "react-toastify";
-import { api } from "../Services/Api";
-import { getToken } from "../Services/LocalStorage";
-import { UserContext } from "./UserContext";
+import { useState } from 'react';
+import { useContext } from 'react';
+import { createContext } from 'react';
+import { toast } from 'react-toastify';
+import { api } from '../Services/Api';
+import { getToken } from '../Services/LocalStorage';
+import { UserContext } from './UserContext';
 
 
 export const TechsContext = createContext({})
