@@ -5,7 +5,6 @@ import { toast } from 'react-toastify'
 import { clearToken, clearUserId, getDarkMode, getToken, setDarkMode, setToken, setUserId }  from '../Services/LocalStorage/index'
 import { api } from'../Services/Api'
 import { useEffect } from "react"
-import { LoadingBg } from "../Styles/LoadingBg"
 
 export const UserContext = createContext({})
 
@@ -32,7 +31,6 @@ useEffect(() => {
           headers: {
           authorization: `Bearer ${token}` }
         })
-       
         setUser(data)
       } catch (error) {
         clearToken()
@@ -43,7 +41,6 @@ useEffect(() => {
         setLoading(false)
       }
       
-
     }
     authUser()
 
@@ -83,9 +80,12 @@ const userLogin = async (data) => {
     }
   }
   
+
     return (
         <UserContext.Provider value={{userLogin, userRegister, loading, setLoading, user, isDark, setIsDark}}>
             {children}
         </UserContext.Provider>
     )
+
+    
 }
