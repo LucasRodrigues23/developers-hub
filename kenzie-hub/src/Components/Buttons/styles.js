@@ -75,14 +75,14 @@ export const ThemeButtonStyled = styled.button`
         switch (isDark) {
             case false:
                 return css`
-                background-color: white;
-                color: grey;
+                background-color: rgba(224, 224, 224, 0.7);
+                color: #121214;
             `
             default:
             case true:
             return css`
-                background-color: black;
-                color: grey;
+                background-color: rgba(0, 0, 0, 0.5);
+                color: #b9b9b9;
             `  
             
             

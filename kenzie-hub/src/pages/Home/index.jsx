@@ -16,7 +16,7 @@ import { TechsContext } from '../../Contexts/TechsContext'
 import { FormEditTech } from '../../Components/FormEditTech'
 
 export const HomePage = () => {
-  const { user, loading } = useContext(UserContext)
+  const { user } = useContext(UserContext)
   const navigate = useNavigate()
   const { techs, editTech, showModal, setShowModal, showModal2, setShowModal2 } = useContext(TechsContext)
 

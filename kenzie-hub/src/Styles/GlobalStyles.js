@@ -10,7 +10,8 @@ export default createGlobalStyle`
 }
 
 :root {${({isDark}) => {
-    switch (isDark) {
+
+        switch (isDark) { 
         case false:
             return css `
             --color-primary: #FF577F;
