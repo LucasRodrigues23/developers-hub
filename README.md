@@ -1,5 +1,1 @@
-# react-entrega-kenzie-hub
-
-OneOf
-
-yup ref
+# react-developer-hub
