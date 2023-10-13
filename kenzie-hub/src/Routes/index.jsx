@@ -13,7 +13,7 @@ export const BasicRoutes = () => {
         </Route>
         <Route path='register' element={<RegisterPage />} />
         <Route path='login' element={<LoginPage />} />
-        <Route path="*" element={<Navigate to='home' />} />
+        <Route path='*' element={<Navigate to='home' />} />
       </Routes>
   )
   

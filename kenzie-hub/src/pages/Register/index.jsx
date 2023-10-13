@@ -38,7 +38,7 @@ export const RegisterPage = () => {
   return (
     <>
     <RegisterBoxLogo className='register-logo-box'>
-      <img src={Logo} alt="Logo" />
+      <img src={Logo} alt='Logo' />
       <Link to='/login'>Voltar</Link>
     </RegisterBoxLogo>
     
